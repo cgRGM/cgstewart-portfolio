@@ -40,18 +40,31 @@ export const Videos: CollectionConfig = {
         try {
           const url = new URL(val)
           const validDomains = [
+            // YouTube domains
             'youtube.com',
             'youtu.be',
             'm.youtube.com',
+            'music.youtube.com',
+            'gaming.youtube.com',
+            'tv.youtube.com',
+            // Vimeo domains
             'vimeo.com',
             'player.vimeo.com',
+            // Twitch domains
             'twitch.tv',
-            'www.twitch.tv',
+            'm.twitch.tv',
+            // Other platforms
+            'dailymotion.com',
+            'wistia.com',
           ]
+          
+          // Remove www. prefix if present for comparison
+          const hostname = url.hostname.replace(/^www\./, '')
+          
           const isValidDomain = validDomains.some(
-            (domain) => url.hostname === domain || url.hostname === `www.${domain}`,
+            (domain) => hostname === domain || hostname === domain.replace(/^www\./, ''),
           )
-          return isValidDomain || 'Please enter a valid YouTube, Vimeo, or Twitch URL'
+          return isValidDomain || 'Please enter a valid video platform URL (YouTube, Vimeo, Twitch, etc.)'
         } catch {
           return 'Please enter a valid URL'
         }
