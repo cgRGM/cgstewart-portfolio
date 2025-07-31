@@ -35,10 +35,10 @@ export const Videos: CollectionConfig = {
       name: 'videoUrl',
       type: 'text',
       required: true,
-      validate: (val) => {
-        if (!val) return 'Video URL is required'
+      validate: (value: string | null | undefined) => {
+        if (!value) return 'Video URL is required'
         try {
-          const url = new URL(val)
+          const url = new URL(value)
           const validDomains = [
             // YouTube domains
             'youtube.com',

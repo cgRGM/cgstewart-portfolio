@@ -88,7 +88,7 @@ export const Bio: CollectionConfig = {
         // Ensure only one bio instance exists
         if (operation === 'create') {
           const existingBio = await req.payload.find({
-            collection: 'bio' as any,
+            collection: 'bio',
             limit: 1,
           })
 
