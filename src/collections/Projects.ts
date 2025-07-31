@@ -2,8 +2,6 @@ import type { CollectionConfig } from 'payload'
 import { slugField } from '../fields/slug'
 
 export const Projects: CollectionConfig = {
-  auth: true,
-  
   slug: 'projects',
   admin: {
     useAsTitle: 'title',

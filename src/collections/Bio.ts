@@ -1,7 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
 export const Bio: CollectionConfig = {
-  auth: true,
   slug: 'bio',
   admin: {
     useAsTitle: 'about',
